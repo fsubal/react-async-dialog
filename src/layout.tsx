@@ -1,7 +1,12 @@
 import React from "react"
 import { LayoutProps } from "./types"
 
-export const DefaultLayout: React.FC<LayoutProps> = ({ labels, children, onOk, onCancel }) => {
+export const DefaultLayout: React.FC<LayoutProps> = ({
+  labels,
+  children,
+  onOk,
+  onCancel
+}) => {
   return (
     <div>
       <div>
@@ -14,4 +19,3 @@ export const DefaultLayout: React.FC<LayoutProps> = ({ labels, children, onOk, o
     </div>
   )
 }
-  

@@ -5,13 +5,13 @@ import { AnyEvent, LayoutProps } from "./types"
 
 export const Dialog = createContext({
   alert(children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
-    if (typeof children === 'string') {
+    if (typeof children === "string") {
       alert(children)
     }
     return Promise.resolve(true)
   },
   confirm(children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
-    if (typeof children === 'string') {
+    if (typeof children === "string") {
       return Promise.resolve(confirm(children))
     }
     return Promise.resolve(true)
@@ -21,7 +21,7 @@ export const Dialog = createContext({
   }
 })
 
-const defaultLabels = { ok: 'OK', cancel: 'Cancel' }
+const defaultLabels = { ok: "OK", cancel: "Cancel" }
 
 export default function DialogProvider({
   layout = DefaultLayout,
@@ -67,7 +67,8 @@ export default function DialogProvider({
         alert: createOpener(layout),
         confirm: createOpener(layout),
         portal: createOpener(React.Fragment)
-      }}>
+      }}
+    >
       {children}
       {portal}
     </Dialog.Provider>
