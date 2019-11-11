@@ -45,3 +45,10 @@ ReactDOM.render(
     root
 )
 ```
+
+### Polyfills
+
+`react-async-dialog` requires the following
+
+- `Promise`
+- `Object.assign`
