@@ -5,7 +5,7 @@ import { AnyEvent, LayoutProps } from "./types"
 
 export type DialogFunction = (
   children: React.ReactNode,
-  _labels?: { ok: string; cancel: string }
+  labels?: { ok: string; cancel: string }
 ) => Promise<boolean>
 
 export interface DialogValue {

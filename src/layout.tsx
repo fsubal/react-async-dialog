@@ -4,7 +4,7 @@ import { LayoutProps } from "./types"
 /**
  * Using inline CSS so that no dependencies are coming
  *
- * ( want it to work whether with CSS Modules, or any CSS in JS )
+ * ( want it to work no matter whether we use CSS Modules, or any CSS in JS )
  */
 
 const Backdrop: React.FC = ({ children }) => (
