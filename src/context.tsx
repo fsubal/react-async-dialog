@@ -3,21 +3,35 @@ import { createPortal } from "react-dom"
 import { DefaultLayout } from "./layout"
 import { AnyEvent, LayoutProps } from "./types"
 
-export const Dialog = createContext({
-  alert(children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
-    if (typeof children === "string") {
-      alert(children)
-    }
-    return Promise.resolve(true)
+export type DialogFunction = (
+  children: React.ReactNode,
+  _labels?: { ok: string; cancel: string }
+) => Promise<boolean>
+
+export interface DialogValue {
+  alert: DialogFunction
+  confirm: DialogFunction
+  portal: DialogFunction
+}
+
+export const Dialog = createContext<DialogValue>({
+  alert(_children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
+    throw new Error(
+      "[react-async-dialog] Please render <DialogProvider> above in your tree, to use alert()"
+    )
   },
-  confirm(children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
-    if (typeof children === "string") {
-      return Promise.resolve(confirm(children))
-    }
-    return Promise.resolve(true)
+  confirm(
+    _children: React.ReactNode,
+    _labels?: { ok: string; cancel: string }
+  ) {
+    throw new Error(
+      "[react-async-dialog] Please render <DialogProvider> above in your tree, to use confirm()"
+    )
   },
   portal(_children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
-    return Promise.resolve(true)
+    throw new Error(
+      "[react-async-dialog] Please render <DialogProvider> above in your tree, to use portal()"
+    )
   }
 })
 
