@@ -1,21 +1,28 @@
 {
   "name": "react-async-dialog",
   "version": "0.1.0",
-  "main": "./dist/esm/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/typings.d.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/fsubal/react-async-dialog.git"
   },
   "author": "subal <fsubal1102@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "bili",
+    "prepublishOnly": "build"
+  },
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "bili": "^4.8.1",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "typescript": "^3.7.2"
   },
   "peerDependencies": {
     "react": ">= 16.8",

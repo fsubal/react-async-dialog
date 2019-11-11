@@ -1,3 +1,4 @@
+import React from "react"
 import { LayoutProps } from "./types"
 
 export const DefaultLayout: React.FC<LayoutProps> = ({ labels, children, onOk, onCancel }) => {

@@ -4,20 +4,20 @@ import { DefaultLayout } from "./layout"
 import { AnyEvent, LayoutProps } from "./types"
 
 export const Dialog = createContext({
-  async alert(children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
+  alert(children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
     if (typeof children === 'string') {
       alert(children)
     }
-    return true
+    return Promise.resolve(true)
   },
-  async confirm(children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
+  confirm(children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
     if (typeof children === 'string') {
-      return confirm(children)
+      return Promise.resolve(confirm(children))
     }
-    return true
+    return Promise.resolve(true)
   },
-  async portal(_children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
-    return true
+  portal(_children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
+    return Promise.resolve(true)
   }
 })
 
@@ -51,7 +51,7 @@ export default function DialogProvider({
             onOk={onResolve(true)}
             onCancel={onResolve(false)}
             children={children}
-            labels={{ ...defaultLabels, ...labels }}
+            labels={Object.assign({}, defaultLabels, labels)}
           />,
           container
         )
