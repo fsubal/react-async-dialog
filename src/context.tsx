@@ -65,7 +65,10 @@ export default function DialogProvider({
             onOk={onResolve(true)}
             onCancel={onResolve(false)}
             children={children}
-            labels={Object.assign({}, defaultLabels, labels)}
+            labels={{
+              ok: labels?.ok ?? defaultLabels.ok,
+              cancel: labels?.cancel ?? defaultLabels.cancel
+            }}
           />,
           container
         )
