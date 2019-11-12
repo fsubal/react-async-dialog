@@ -11,7 +11,7 @@ const Backdrop: React.FC = ({ children }) => (
   <div
     style={{
       position: "fixed",
-      backgroundColor: "rgba(0, 0, 64, 0.5)",
+      backgroundColor: "rgba(24, 24, 36, 0.7)",
       left: 0,
       top: 0,
       width: "100%",
@@ -38,6 +38,54 @@ const Container: React.FC = ({ children }) => (
   </div>
 )
 
+const Body: React.FC = ({ children }) => (
+  <div
+    style={{
+      padding: 16
+    }}
+  >
+    {children}
+  </div>
+)
+
+const Footer: React.FC = ({ children }) => (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "flex-end",
+      padding: "8px 8px 8px 12px",
+      borderTop: "1px solid #ddd"
+    }}
+  >
+    {children}
+  </div>
+)
+
+const Button: React.FC<{
+  type: "primary" | "default"
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+}> = ({ type, onClick, children }) => (
+  <button
+    onClick={onClick}
+    style={{
+      appearance: "none",
+      cursor: "pointer",
+      border: 0,
+      borderRadius: 4,
+      margin: "0 4px",
+      fontSize: "0.875em",
+      backgroundColor: type === "primary" ? "#4466ee" : "#c4c4c4",
+      color: "#fff",
+      display: "flex",
+      justifyContent: "flex-end",
+      padding: "8px 16px",
+      borderTop: "1px solid #ddd"
+    }}
+  >
+    {children}
+  </button>
+)
+
 export const DefaultLayout: React.FC<LayoutProps> = ({
   labels,
   children,
@@ -47,11 +95,15 @@ export const DefaultLayout: React.FC<LayoutProps> = ({
   return (
     <Backdrop>
       <Container>
-        <div>{children}</div>
-        <div>
-          <button onClick={onOk}>{labels.ok}</button>
-          <button onClick={onCancel}>{labels.cancel}</button>
-        </div>
+        <Body>{children}</Body>
+        <Footer>
+          <Button type="primary" onClick={onOk}>
+            {labels.ok}
+          </Button>
+          <Button type="default" onClick={onCancel}>
+            {labels.cancel}
+          </Button>
+        </Footer>
       </Container>
     </Backdrop>
   )
