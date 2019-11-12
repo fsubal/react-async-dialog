@@ -14,7 +14,7 @@
   "scripts": {
     "test": "jest",
     "build": "bili",
-    "prepublishOnly": "build",
+    "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
