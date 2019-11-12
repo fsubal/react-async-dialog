@@ -75,7 +75,7 @@ export default function DialogProvider({
 
         setPortal(portal)
       }),
-    [layout, children, container]
+    [children, container]
   )
 
   return (
