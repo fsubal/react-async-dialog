@@ -42,7 +42,7 @@ export default function DialogProvider({
   container = document.body,
   children
 }: {
-  layout: React.ComponentType<LayoutProps>
+  layout?: React.ComponentType<LayoutProps>
   container?: HTMLElement
   children: React.ReactNode
 }) {

@@ -9,6 +9,7 @@ import { LayoutProps } from "./types"
 
 const Backdrop: React.FC = ({ children }) => (
   <div
+    data-dialog-root
     style={{
       position: "fixed",
       backgroundColor: "rgba(24, 24, 36, 0.7)",
