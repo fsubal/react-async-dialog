@@ -2,6 +2,8 @@
 
 Yes, you can do `await dialog.alert(<YourComponent />)` out of the box!
 
+![storybook.png](./README/storybook.png)
+
 ### Why?
 
 [React](https://github.com/facebook/react) provides a first-class way to use [Portals](https://reactjs.org/docs/portals.html), which makes modals easy to create.
