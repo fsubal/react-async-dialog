@@ -2,6 +2,14 @@
 
 Yes, you can do `await dialog.alert(<YourComponent />)` out of the box!
 
+```
+npm install react-async-dialog
+```
+
+```
+yarn add react-async-dialog
+```
+
 ![storybook.png](./README/storybook.png)
 
 ### Why?
