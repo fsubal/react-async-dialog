@@ -1,10 +1,12 @@
 {
   "name": "react-async-dialog",
   "version": "0.1.0",
-  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/fsubal/react-async-dialog.git"
