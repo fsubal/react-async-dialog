@@ -9,7 +9,6 @@
     "type": "git",
     "url": "https://github.com/fsubal/react-async-dialog.git"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "author": "subal <fsubal1102@gmail.com>",
   "license": "MIT",
   "scripts": {
