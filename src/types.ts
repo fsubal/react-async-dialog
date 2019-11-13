@@ -3,8 +3,8 @@ export interface AnyEvent {
 }
 
 export interface LayoutProps {
-  labels: { ok: string; cancel: string }
+  labels: { ok: string; cancel?: string }
   children: React.ReactNode
   onOk(e: AnyEvent): void
-  onCancel(e: AnyEvent): void
+  onCancel?: (e: AnyEvent) => void
 }

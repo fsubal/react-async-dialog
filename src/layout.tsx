@@ -101,9 +101,11 @@ export const DefaultLayout: React.FC<LayoutProps> = ({
           <Button type="primary" onClick={onOk}>
             {labels.ok}
           </Button>
-          <Button type="default" onClick={onCancel}>
-            {labels.cancel}
-          </Button>
+          {onCancel && (
+            <Button type="default" onClick={onCancel}>
+              {labels.cancel}
+            </Button>
+          )}
         </Footer>
       </Container>
     </Backdrop>

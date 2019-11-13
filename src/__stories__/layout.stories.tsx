@@ -15,6 +15,14 @@ export const defaultLayout = () => {
   )
 }
 
+export const okOnly = () => {
+  return (
+    <DefaultLayout onOk={action("onOk")} labels={{ ok: text("OK", "OK") }}>
+      Alert only shows OK (There is no cancel)
+    </DefaultLayout>
+  )
+}
+
 export default {
   title: "Layout",
   decorators: [withKnobs]

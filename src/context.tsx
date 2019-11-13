@@ -5,7 +5,7 @@ import { AnyEvent, LayoutProps } from "./types"
 
 export type DialogFunction = (
   children: React.ReactNode,
-  labels?: { ok: string; cancel: string }
+  labels?: { ok?: string; cancel?: string }
 ) => Promise<boolean>
 
 export interface DialogValue {
@@ -15,20 +15,26 @@ export interface DialogValue {
 }
 
 export const Dialog = createContext<DialogValue>({
-  alert(_children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
+  alert(
+    _children: React.ReactNode,
+    _labels?: { ok?: string; cancel?: string }
+  ) {
     throw new Error(
       "[react-async-dialog] Please render <DialogProvider> above in your tree, to use alert()"
     )
   },
   confirm(
     _children: React.ReactNode,
-    _labels?: { ok: string; cancel: string }
+    _labels?: { ok?: string; cancel?: string }
   ) {
     throw new Error(
       "[react-async-dialog] Please render <DialogProvider> above in your tree, to use confirm()"
     )
   },
-  portal(_children: React.ReactNode, _labels?: { ok: string; cancel: string }) {
+  portal(
+    _children: React.ReactNode,
+    _labels?: { ok?: string; cancel?: string }
+  ) {
     throw new Error(
       "[react-async-dialog] Please render <DialogProvider> above in your tree, to use portal()"
     )
@@ -49,7 +55,7 @@ export default function DialogProvider({
   const [portal, setPortal] = useState<React.ReactPortal | null>(null)
 
   const createOpener = useCallback(
-    (Component: React.ComponentType<LayoutProps>) => (
+    (Component: React.ComponentType<LayoutProps>, okOnly?: boolean) => (
       children: React.ReactNode,
       labels?: { ok?: string; cancel?: string }
     ) =>
@@ -63,7 +69,7 @@ export default function DialogProvider({
         const portal = createPortal(
           <Component
             onOk={onResolve(true)}
-            onCancel={onResolve(false)}
+            onCancel={okOnly ? undefined : onResolve(false)}
             children={children}
             labels={{
               ok: labels?.ok ?? defaultLabels.ok,
@@ -81,7 +87,7 @@ export default function DialogProvider({
   return (
     <Dialog.Provider
       value={{
-        alert: createOpener(layout),
+        alert: createOpener(layout, true),
         confirm: createOpener(layout),
         portal: createOpener(React.Fragment)
       }}
