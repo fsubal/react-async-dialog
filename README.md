@@ -37,7 +37,7 @@ This library gives you this behavior out of the box!
 ```jsx
 import { DialogProvider, useDialog } from "react-async-dialog"
 
-function YourApp(save) {
+function YourApp({ save }) {
   const dialog = useDialog()
 
   const onSave = async e => {
