@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Simulate, act } from "react-dom/test-utils"
 import { render, unmountComponentAtNode } from "react-dom"
-import DialogProvider, { useDialog } from ".."
+import { DialogProvider, useDialog } from ".."
 
 let root: HTMLElement | undefined = undefined
 beforeEach(() => {
