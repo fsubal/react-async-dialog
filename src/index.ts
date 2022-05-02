@@ -1,4 +1,4 @@
-export { default } from "./context"
+export { DialogProvider } from "./context"
 export { useDialog } from "./hooks"
 export { DefaultLayout } from "./layout"
 export { LayoutProps } from "./types"

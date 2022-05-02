@@ -43,7 +43,7 @@ export const Dialog = createContext<DialogValue>({
 
 const defaultLabels = { ok: "OK", cancel: "Cancel" }
 
-export default function DialogProvider({
+export function DialogProvider({
   layout = DefaultLayout,
   container = document.body,
   children
